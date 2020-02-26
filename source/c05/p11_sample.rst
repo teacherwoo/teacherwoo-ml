@@ -2,16 +2,16 @@
  案例
 =====================
 
-----------
+
 学习目标
-----------
+************
  
  
 应用
 电影数据的分析练习
 
 需求
--------------
+********
 
 现在我们有一组从2006年到2016年1000部最流行的电影数据，数据来源：https://www.kaggle.com/damianpanek/sunday-eda/data
 
@@ -125,7 +125,7 @@ for i in range(1000):
 print(temp_df.sum().sort_values())
 
 求和,绘图
-----------------
+****************
 
 temp_df.sum().sort_values(ascending=False).plot(kind="bar",figsize=(20,8),fontsize=20,colormap="cool")
 

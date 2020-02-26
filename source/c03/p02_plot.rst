@@ -2,9 +2,8 @@
  折线图(plot)与基础绘图功能
 =====================================
 
-----------
 学习目标
-----------
+************
 
 
 学习折线图的绘制和图形保存
@@ -17,15 +16,21 @@
 
 
 折线图绘制与保存图片
---------------------------
+***************************
 
 为了更好地理解所有基础绘图功能，我们通过天气温度变化的绘图来融合所有的基础API使用
 
-1.1 matplotlib.pyplot模块
+
+matplotlib.pyplot模块
+------------------------------
+
 matplotlib.pytplot包含了一系列类似于matlab的画图函数。 它的函数作用于当前图形(figure)的当前坐标系(axes)。
 
 import matplotlib.pyplot as plt
-1.2 折线图绘制与显示
+
+折线图绘制与显示
+------------------------
+
 展现上海一周的天气,比如从星期一到星期日的天气温度如下
 
 # 1.创建画布(容器层)
@@ -36,11 +41,15 @@ plt.plot([1, 2, 3, 4, 5, 6 ,7], [17,17,18,15,11,11,13])
 
 # 3.显示图像
 plt.show()
+
 折线图
 
 可以看到这样显示效果并不好，我们可以加入更多的功能：
 
-1.3 设置画布属性与图片保存
+
+设置画布属性与图片保存
+-------------------------------
+
 plt.figure(figsize=(), dpi=)
     figsize:指定图的长宽
     dpi:图像的清晰度
@@ -53,7 +62,7 @@ plt.savefig("test.png")
 注意：plt.show()会释放figure资源，如果在显示图像之后保存图片将只能保存空图片。
 
 完善原始折线图1(辅助显示层)
------------------------------------
+**********************************
 
 案例：显示温度变化状况
 
@@ -63,7 +72,9 @@ plt.savefig("test.png")
 
 上海1
 
-2.1 准备数据并画出初始折线图
+准备数据并画出初始折线图
+----------------------------
+
 # 画出温度变化图
 
 # 0.准备x, y坐标的数据
@@ -80,7 +91,10 @@ plt.plot(x, y_shanghai)
 plt.show()
 上海2
 
-2.2 添加自定义x,y刻度
+
+添加自定义x,y刻度
+-----------------------
+
 plt.xticks(x, **kwargs)
 
 x:要显示的刻度值
@@ -104,7 +118,10 @@ plt.yticks(y_ticks[::5])
 
 中文问题
 
-2.3 中文显示问题解决
+
+中文显示问题解决
+--------------------
+
 下载中文字体（黑体，看准系统版本）
 
 下载 SimHei 字体（或者其他的支持中文显示的字体也行）
@@ -128,13 +145,19 @@ vi ~/.matplotlib/matplotlibrc
 font.family         : sans-serif
 font.sans-serif         : SimHei
 axes.unicode_minus  : False
-2.4 添加网格显示
+
+添加网格显示
+----------------
+
 为了更加清楚地观察图形对应的值
 
 plt.grid(True, linestyle='--', alpha=0.5)
 
 
-2.5 添加描述信息
+
+添加描述信息
+------------------
+
 添加x轴、y轴描述信息及标题
 
 plt.xlabel("时间")
@@ -143,9 +166,11 @@ plt.title("中午11点0分到12点之间的温度变化图示")
 
 
 完善原始折线图2(图像层)
-----------------------------
+*******************************
 
-3.1 多次plot
+多次plot
+-----------
+
 需求：再添加一个城市的温度变化
 
 收集到北京当天温度变化情况，温度在1度到3度。怎么去添加另一个在同一坐标系当中的不同图形，其实很简单只需要再次plot即可，但是需要区分线条，如下显示
@@ -164,7 +189,9 @@ plt.plot(x, y_beijing, color='r', linestyle='--', label="北京")
 plt.legend(loc="best")
 我们仔细观察，用到了两个新的地方，一个是对于不同的折线展示效果，一个是添加图例。
 
-3.2 设置图形风格
+设置图形风格
+----------------------
+
 颜色字符  风格字符
 r 红色  - 实线
 g 绿色  - - 虚线
@@ -182,44 +209,46 @@ legend
 
 完整代码：
 
-import random
+.. code-block:: python
 
-# 多次plot
-# 0.创建数据
-x = range(60)
-y_shanghai = [random.uniform(15,18) for i in x]
-y_beijing = [random.uniform(-5, 5) for i in x]
-
-# 1.创建画布
-plt.figure(figsize=(20, 8), dpi=100)
-
-# 2.绘制图
-plt.plot(x, y_shanghai, label="上海", color="r", linestyle="--")
-plt.plot(x, y_beijing, label="北京")
-
-# 2.1 添加x,y轴的刻度
-x_labels_ticks = ["11点{}分".format(i) for i in x]
-y_labels_ticks = range(-10, 30)
-
-plt.xticks(x[::5], x_labels_ticks[::5])
-plt.yticks(y_labels_ticks[::5])
-
-# 2.2 添加网格线
-plt.grid(linestyle="--", alpha=0.5)
-
-# 2.3 添加描述信息
-plt.xlabel("时间", fontsize=16)
-plt.ylabel("温度", fontsize=16)
-plt.title("某城市11点-12点温度变化", fontsize=20)
-
-# 2.4 增加图例
-plt.legend(loc="best")
-
-# 3.显示
-plt.show()
+    import random
+    
+    # 多次plot
+    # 0.创建数据
+    x = range(60)
+    y_shanghai = [random.uniform(15,18) for i in x]
+    y_beijing = [random.uniform(-5, 5) for i in x]
+    
+    # 1.创建画布
+    plt.figure(figsize=(20, 8), dpi=100)
+    
+    # 2.绘制图
+    plt.plot(x, y_shanghai, label="上海", color="r", linestyle="--")
+    plt.plot(x, y_beijing, label="北京")
+    
+    # 2.1 添加x,y轴的刻度
+    x_labels_ticks = ["11点{}分".format(i) for i in x]
+    y_labels_ticks = range(-10, 30)
+    
+    plt.xticks(x[::5], x_labels_ticks[::5])
+    plt.yticks(y_labels_ticks[::5])
+    
+    # 2.2 添加网格线
+    plt.grid(linestyle="--", alpha=0.5)
+    
+    # 2.3 添加描述信息
+    plt.xlabel("时间", fontsize=16)
+    plt.ylabel("温度", fontsize=16)
+    plt.title("某城市11点-12点温度变化", fontsize=20)
+    
+    # 2.4 增加图例
+    plt.legend(loc="best")
+    
+    # 3.显示
+    plt.show()
 
 练一练
----------------
+*******************
 
 练习多次plot流程(从上面复制代码,到自己电脑,确保每人环境可以正常运行),
 
@@ -227,7 +256,7 @@ plt.show()
 
 
 多个坐标系显示-plt.subplots(面向对象的画图方法)
-----------------------------------------------------
+*****************************************************
 
 如果我们想要将上海和北京的天气图显示在同一个图的不同坐标系当中，效果如下：
 
@@ -309,7 +338,7 @@ axes[1].legend(loc=0)
 plt.show()
 
  折线图的应用场景
--------------------------
+**********************************************
 
 呈现公司产品(不同区域)每天活跃用户数
 
@@ -323,27 +352,27 @@ plt.show()
 
 
 
-代码：
+.. code-block:: python
 
-import numpy as np
-# 0.准备数据
-x = np.linspace(-10, 10, 1000)
-y = np.sin(x)
-
-# 1.创建画布
-plt.figure(figsize=(20, 8), dpi=100)
-
-# 2.绘制函数图像
-plt.plot(x, y)
-# 2.1 添加网格显示
-plt.grid()
-
-# 3.显示图像
-plt.show()
+    import numpy as np
+    # 0.准备数据
+    x = np.linspace(-10, 10, 1000)
+    y = np.sin(x)
+    
+    # 1.创建画布
+    plt.figure(figsize=(20, 8), dpi=100)
+    
+    # 2.绘制函数图像
+    plt.plot(x, y)
+    # 2.1 添加网格显示
+    plt.grid()
+    
+    # 3.显示图像
+    plt.show()
 
 
 小结
------------
+*********************
 
 图像保存【知道】
 plt.savefig("路径")

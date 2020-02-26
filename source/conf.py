@@ -44,7 +44,7 @@ master_doc = u'index'
 
 
 # General information about the project.
-project = u'teacherwoo-pythonbook2'
+project = u'teacherwoo-ml'
 
 copyright = u'2020, 吴老师'
 
@@ -175,7 +175,7 @@ html_static_path = [u'_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'teacherwoo-pythonbook2doc'
+htmlhelp_basename = 'teacherwoo-ml'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -190,7 +190,7 @@ latex_font_size = u'10pt'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [('index', 'teacherwoo-pythonbook2.tex', u'《鸥集礼德Python高级教程》', u'吴老师', 'manual')]
+latex_documents = [('index', 'teacherwoo-ml.tex', u'《鸥集礼德Python高级教程》', u'吴老师', 'manual')]
 
 
 # A dictionary that contains LaTeX snippets that override those Sphinx usually 
@@ -226,7 +226,7 @@ latex_use_parts = False
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [('index', 'teacherwoo-pythonbook2', u'《鸥集礼德Python高级教程》', [u'吴老师'], 1)]
+man_pages = [('index', 'teacherwoo-ml', u'《鸥集礼德Python高级教程》', [u'吴老师'], 1)]
 
 
 # -- Additional options --------------------------------------------------------
