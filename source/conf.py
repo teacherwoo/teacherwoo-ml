@@ -190,7 +190,7 @@ latex_font_size = u'10pt'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [('index', 'teacherwoo-ml.tex', u'《鸥集礼德Python高级教程》', u'吴老师', 'manual')]
+latex_documents = [('index', 'teacherwoo-ml.tex', u'《鸥集礼德机器学习简明教程》', u'吴老师', 'manual')]
 
 
 # A dictionary that contains LaTeX snippets that override those Sphinx usually 
@@ -219,14 +219,14 @@ latex_use_parts = False
 #latex_appendices = []
 
 # If false, no module index is generated.
-#latex_domain_indices = True
+latex_domain_indices = True
 
 
 # -- Options for manual page output --------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [('index', 'teacherwoo-ml', u'《鸥集礼德Python高级教程》', [u'吴老师'], 1)]
+man_pages = [('index', 'teacherwoo-ml', u'《鸥集礼德机器学习简明教程》', [u'吴老师'], 1)]
 
 
 # -- Additional options --------------------------------------------------------
