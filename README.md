@@ -1,2 +1,3 @@
-# teacherwoo-pythonbook2
-teacherwoo-pythonbook2
+# 吴老师的机器学习 实践课
+
+机器学习的实践讲解。
